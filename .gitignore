@@ -37,3 +37,6 @@
 
 # CMake file
 build
+
+# Coredump files
+core
