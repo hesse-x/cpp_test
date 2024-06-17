@@ -1,7 +1,9 @@
-#include <iostream>
-#include <string>
 #include <compare>
+#include <gtest/gtest.h>
+#include <iostream>
 #include <ranges>
+#include <string>
+
 struct A {
   std::strong_ordering operator<=>(const A &other) const {
     auto len = std::min(str.size(), other.str.size());
@@ -12,19 +14,20 @@ struct A {
         return std::strong_ordering::greater;
     }
     if (str.size() > other.str.size())
-        return std::strong_ordering::greater;
+      return std::strong_ordering::greater;
     if (str.size() < other.str.size())
-        return std::strong_ordering::less;
+      return std::strong_ordering::less;
     return std::strong_ordering::equal;
   }
+  bool operator==(const A &other) const { return (*this <=> other == 0); }
   std::string str;
 };
-int main() {
+TEST(TEST0, TEST0) {
   auto res = int(3) <=> int(2);
-//  std::cout << (res < 0) << std::endl;
-//  std::cout << (res > 2) << std::endl;
+  EXPECT_TRUE(res > 0);
 
   A a1{"ab"}, a2{"b"};
-  std::cout << (a1 < a2) <<"\n";
-  std::cout << (a1 > a2) <<"\n";
+  EXPECT_TRUE(a1 < a2);
+  EXPECT_FALSE(a1 > a2);
+  EXPECT_FALSE(a1 == a2);
 }
