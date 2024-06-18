@@ -36,19 +36,11 @@ add_custom_target(
 # Find the Google Test package
 find_package(GTest REQUIRED)
 
+# 定义源文件目录变量
+set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR}/../../)
+
 # 添加工程的根目录到头文件搜索路径
-include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR})
 include(${CMAKE_CURRENT_SOURCE_DIR}/macros.cmake)
 
-add_subdirectory(log_test)
-add_subdirectory(log_test1)
-
-cc_test(NAME compare
-        SRCS compare.cpp)
-cc_test(NAME graph_visit
-        SRCS graph_visit.cpp)
-cc_test(NAME read_mem_file
-        SRCS read_mem_file.cpp)
-cc_test(NAME zip
-        SRCS zip.cpp
-        STANDARD 23)
+add_subdirectory(${PROJECT_SOURCE_DIR}/test ${CMAKE_BINARY_DIR}/test)
