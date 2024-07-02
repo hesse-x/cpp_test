@@ -1,6 +1,5 @@
 用于学习C++、cmake、代码检查工具的仓库
 
-
 ```shell
 mkdir build
 cd build
