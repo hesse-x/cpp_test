@@ -11,5 +11,7 @@ cc_test(NAME zip
         SRCS zip.cpp
         STANDARD 23)
 cc_test(NAME format
-        SRCS format_test.cpp
-        STANDARD 23)
+        SRCS format_test.cpp)
+
+cc_test(NAME type_id
+        SRCS type_id.cpp)

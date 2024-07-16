@@ -1,7 +1,8 @@
 #include <format>
-#include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
+
+#include <gtest/gtest.h>
 
 TEST(TEST0, TEST0) {
   std::vector<std::string> words = {"hello", "world", "this",
