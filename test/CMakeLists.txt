@@ -10,3 +10,6 @@ cc_test(NAME read_mem_file
 cc_test(NAME zip
         SRCS zip.cpp
         STANDARD 23)
+cc_test(NAME format
+        SRCS format_test.cpp
+        STANDARD 23)
